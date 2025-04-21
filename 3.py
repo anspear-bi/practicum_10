@@ -1,7 +1,5 @@
-with open('input.txt', 'r') as f_in:
-    lines = f_in.readlines()
+f = open('input.txt', 'r')
 
-result = ''.join(line[0] for line in lines if line)
-
-with open('output.txt', 'w') as f_out:
-    f_out.write(result)
+for i in f.readlines():
+    print(i[0], end='')
+f.close()
