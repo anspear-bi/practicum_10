@@ -1,13 +1,16 @@
-try:
-    with open('input.txt', 'r') as f_in:
-        a = int(f_in.readline())
-        b = int(f_in.readline())
-        c = int(f_in.readline())
-    result = a / b + c
-except ValueError:
-    result = "ValueError"
-except ZeroDivisionError:
-    result = "ZeroDivisionError"
+f = open('input.txt', 'r').readlines()
+fn = open('output.txt', 'w')
 
-with open('output.txt', 'w') as f_out:
-    f_out.write(str(result))
+for i in range(len(f)):
+    if '\n' in f[i]:
+       f[i] = f[i][0:-1]
+print(f)
+
+
+try:
+    answer = float(f[0])/float(f[1])+float(f[2])
+    fn.write(str(answer))
+except ValueError:
+    fn.write('data error')
+except ZeroDivisionError:
+    fn.write('division by 0')
