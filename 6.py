@@ -1,14 +1,11 @@
+f = open('input.txt', 'r').readlines()
+fn = open('output.txt', 'w')
+print(len(f), f[0][0:-1])
 try:
-    with open('input.txt', 'r') as f_in:
-        first_line = f_in.readline().strip()
-        N = int(first_line)
-        lines = f_in.readlines()
-    if len(lines) == N:
-        res = "YES"
+    if len(f)-1 == int(f[0][0:-1]):
+        fn.write('YES')
     else:
-        res = "NO"
-except ValueError:
-    res = "ERROR"
-
-with open('output.txt', 'w') as f_out:
-    f_out.write(res)
+        fn.write('NO')
+except:
+    fn.write('ERROR')
+fn.close()
